@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finding Zapata | A Washington, DC Music Legacy</title>
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <meta name="description" content="Exploring the origin story of Zapata, Washington, DC's first integrated Black and Latino music group">
+  <meta property="og:title" content="Finding Zapata | A Washington, DC Music Legacy">
+  <meta property="og:description" content="Exploring the origin story of Zapata, Washington, DC's first integrated Black and Latino music group">
+  <meta property="og:image" content="/img/og-img.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Finding Zapata | A Washington, DC Music Legacy">
+  <meta name="twitter:description" content="Exploring the origin story of Zapata, Washington, DC's first integrated Black and Latino music group">
+  <meta name="twitter:image" content="/img/og-img.png">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NL3PGCCS');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/player.css">
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NL3PGCCS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Finding Zapata</a>
+    <div class="navbar-controls">
+      <button class="control-btn" id="prevBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+        </svg>
+      </button>
+      <button class="control-btn play-btn" id="playBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
+      <button class="control-btn" id="nextBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+        </svg>
+      </button>
+      <button class="control-btn volume-btn" id="navVolumeBtn" title="Drag up/down to adjust volume, click to mute">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+      </button>
+    </div>
+    <ul class="navbar-menu">
+      <li><a href="#">Listen</a></li>
+      <li><a href="#about">Origins</a></li>
+      <li><a href="#rev">Revolution</a></li>
+      <li><a href="#posters">Posters</a></li>
+      <li><a href="#coda">Coda</a></li>
+      <li><a href="#credits">Notes</a></li>
+    </ul>
+    <button class="navbar-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+      <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
+  </nav>
+  <!-- Player Section -->
+  <div class="player-container">
+    <div class="album-art">
+      <img src="/img/zapata-lost-tape.webp" alt="Zapata - The Lost Tape">
+    </div>
+
+    <div class="personnel">
+      <h3>Personnel</h3>
+      <ul>
+        <li><span class="role">Horn/Flute:</span> Mosheesh Akbar</li>
+        <li><span class="role">Guitar:</span> Eddie & Miguel Herrera</li>
+        <li><span class="role">Bass:</span> Pepe González</li>
+        <li><span class="role">Drums:</span> Eduardo Africano</li>
+        <li><span class="role">Timbale:</span> Rudy Morales</li>
+        <li><span class="role">Additional Percussion:</span> Tony & Mike Duncanson</li>
+        <li><span class="role">Audio Restoration & Mix Engineer:</span> Don Zientara</li>
+        <li><span class="role">Mastering Engineer:</span> TJ Lipple</li>
+        <li><span class="role">Executive Producer:</span> Pedro J. Urquilla for Upset the Setup</li>
+      </ul>
+    </div>
+
+    <div class="player-section">
+      <div class="player-header">
+        <h1>Zapata: The Lost Tape (1971)</h1>
+      </div>
+
+      <div class="now-playing">
+        <div class="track-info">
+          <div class="track-title">Spring is Here</div>
+          <div class="track-time">
+            <span class="current-time">0:00</span>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+
+
+      <div class="playlist">
+        <div class="playlist-header">Tracks</div>
+        <div class="playlist-tracks">
+          <div class="track-item active" data-src="/mp3/Zapata Lost Tape 01.mp3" data-duration="214">
+            <span class="track-number">1</span>
+            <span class="track-name">Spring is Here</span>
+          </div>
+          <div class="track-item" data-src="/mp3/Zapata Lost Tape 02.mp3" data-duration="228">
+            <span class="track-number">2</span>
+            <span class="track-name">18th Street Royal Flush</span>
+          </div>
+          <div class="track-item" data-src="/mp3/Zapata Lost Tape 03.mp3" data-duration="255">
+            <span class="track-number">3</span>
+            <span class="track-name">Slow Riser</span>
+          </div>
+          <div class="track-item" data-src="/mp3/Zapata Lost Tape 04.mp3" data-duration="256">
+            <span class="track-number">4</span>
+            <span class="track-name">El Barrio</span>
+          </div>
+          <div class="track-item" data-src="/mp3/Zapata Lost Tape 05.mp3" data-duration="223">
+            <span class="track-number">5</span>
+            <span class="track-name">Danoota</span>
+          </div>
+          <div class="track-item" data-src="/mp3/Zapata Lost Tape 06.mp3" data-duration="297">
+            <span class="track-number">6</span>
+            <span class="track-name">Post Sibian</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <audio id="audioPlayer"></audio>
+
+  <!-- Full-screen hero image section -->
+  <section class="hero-section"></section>
+
+  <!-- About Section -->
+  <section id="about" class="content-section">
+    <div class="container">
+      <h2>Finding Zapata</h2>
+      <p>In the 1960s, a group of neighborhood friends formed <strong>Zapata</strong> &mdash; Washington, DC's first integrated Black and Latino music group. Their blend of rock, soul, Latin, and jazz promoted unity and cultural exchange across the city and helped establish a youth subculture that would influence future generations.</p>
+      <p>This is their story.</p>
+    </div>
+  </section>
+
+  <!-- Media & Text Section -->
+  <section class="media-text-section">
+    <div class="media-column">
+      <img src="/img/sour-cream.webp" alt="Eddie Herrera, Rudy Morales, and Pepe González in the mid 1960s">
+      <div class="image-caption">Eddie Herrera, Rudy Morales, and Pepe González (Mid 1960s)</div>
+    </div>
+    <div class="text-column">
+      <h2>Establishing Roots</h2>
+      <h3>Early 1960s in Mount Pleasant</h3>
+      <p>Immigrants from Latin America had been establishing a presence in Washington since the early 1940s. By 1960, roughly 10,000 Spanish-speaking individuals were living in DC — more than triple the community's share of the population a decade earlier <a href="https://planning.dc.gov/sites/default/files/dc/sites/op/publication/attachments/The%20History%20of%20the%20Latino%20Community%20of%20Washington%2C%20DC%201943-1991.pdf" target="blank">(McMahon, 2025)</a> — and they were forming communities in neighborhoods like Mount Pleasant and Adams Morgan. The city was still segregated at the time, and Latinos faced discrimination from both Black and white residents alike. As the decade unfolded, young Latinos were struggling to find their place in a divided society and America's binary racial system.</p>
+
+      <p>Against this backdrop, three teenagers started playing music together in Mount Pleasant. Childhood friends <strong>Eddie Herrera</strong>, <strong>Rudy Morales</strong>, and <strong>Pepe González</strong> performed in the neighborhood &mdash; hosting shows for their friends in basements, garages, and community centers. Drawing influences from popular soul and rock music, they mixed these genres with their parents' cultural traditions to forge a unique sound that would later become <strong>Zapata</strong>.</p>
+    </div>
+  </section>
+
+  <!-- Parallax Pull Quote Section -->
+  <section class="parallax-quote">
+    <div class="quote-container">
+      <blockquote>
+        <p>"Mount Pleasant was a rough place in those times, you might walk into the neighborhood and get robbed, beat up, or both."</p>
+        <cite>— Pepe González, Zapata</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Band Photo Section -->
+  <section class="full-width-image">
+    <img src="/img/mtp-crew.webp" alt="Mount Pleasant Crew">
+    <div class="image-caption">The neighborhood crew on the stoop (Mid 1960s)</div>
+  </section>
+
+  <!-- 60/40 Text & Image Section -->
+  <section class="text-image-section">
+    <div class="text-column-wide">
+      <h2>The Outlaws</h2>
+      <h3>Creating a rebel identity as a means of survival</h3>
+      <p>Rudy, Eddie, Pepe, and their friends seemed to find trouble wherever they turned in DC. Facing harassment from the police, biker gangs, racist Washingtonians, or other rival groups of teens, they adopted a street mentality and gang identity (The Outlaws) as a form of self-preservation and protection.</p>
+      <p>Decked out in denim jackets customized with gang insignias, they painted graffiti on walls, drank in the alley, used and sold drugs, and generally acted like some knuckleheads. They engaged in anti-social behaviors to resolve conflicts, assert their presence, and even have a good time. This kind of behavior and self-destructive mindset was prevalent in the city during this era, and their identity and attitudes reflected the social norms, popular culture, and societal challenges of the time.</p>
+    </div>
+    <div class="image-column-narrow">
+      <div class="image-wrapper">
+        <img src="/img/mtp-gangsters.webp" alt="Chino Bicicleta and Pepe posing with firearms in Mount Pleasant">
+        <div class="image-caption">Chino Bicicleta and Pepe pose with firearms in Mount Pleasant (Mid 1960s)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Streetcar Parallax Divider -->
+  <div class="streetcar-divider"></div>
+
+  <!-- Full Width Image Section -->
+  <section id="rev" class="full-width-image">
+    <img src="/img/rumba-malcolm-x.webp" alt="Neighborhood friends exploring African and Latin drum techniques with Pepe on upright bass in Malcolm X Park">
+    <div class="image-caption">A group of neighborhood friends exploring traditional African and Latin drum techniques with Pepe on upright bass in Malcolm X Park (Late 1960s)</div>
+  </section>
+
+  <!-- Text & Image Section -->
+  <section class="text-image-section">
+    <div class="text-column-wide">
+      <h2>There's Something Happening Here</h2>
+      <h3>Expanding consciousness and new perspectives in the late 1960s</h3>
+      <p>As the Civil Rights and anti-war movements gained momentum, expanding the political consciousness of young people across the country, the rebel identity of the Outlaws crew evolved into a more positive and creative expression. They began to see themselves as artists and musicians, rather than gangsters, and used their music as a platform for social change and cultural expression. They experimented with new sounds, instruments, and styles, drawing inspiration from the psychedelic rock, soul, jazz, and Latin music of the era. They also embraced the counterculture values of peace, love, and unity, and used their music to promote these ideals in the community. It was this shift in consciousness that led to the formation of Zapata.
+      </p>
+    </div>
+    <div class="image-column-narrow">
+      <div class="image-wrapper">
+        <img src="/img/flute-bongos.webp" alt="Pepe and Rudy jamming on the stoop in Mount Pleasant">
+        <div class="image-caption">Pepe and Rudy jamming on the stoop in Mount Pleasant (Late 1960s)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Width Image Section -->
+  <section class="full-width-image">
+    <img src="/img/zapata-outside-performance.webp" alt="Zapata Performance">
+    <div class="image-caption">Zapata performing in DC for a community festival (Late 1960s)</div>
+  </section>
+
+  <!-- Text & Image Section -->
+  <section class="text-image-section">
+    <div class="text-column-wide">
+      <h2>From Rebel to Revolutionary</h2>
+      <h3>Embracing a new identity and purpose as Zapata</h3>
+      <p>The group searched for a new band name and they looked to other revolutionary leaders for possible inspiration. Latin American Communist icons like <strong>Fidel Castro</strong> and <strong>Che Guevara</strong> were considered, but there were debates over ideology, dogma, and revolutionary tactics. Eventually the group chose to honor <strong>Emiliano Zapata</strong>, a Mexican revolutionary leader who fought for social justice and land reform.</p>
+    </div>
+    <div class="image-column-narrow">
+      <div class="image-wrapper">
+        <img src="/img/viva-la-revolucion.webp" alt="Viva La Revolución">
+        <div class="image-caption">Poster by John A. Armendariz, courtesy of the National Museum of American History</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Pull Quote Section -->
+  <section class="parallax-quote zapata-quote">
+    <div class="quote-container">
+      <blockquote>
+        <p><em>Mejor morir a pie que vivir en rodillas.</em></p>
+        <p>Men of the South! It is better to die on your feet than to live on your knees!</p>
+        <cite>— Emiliano Zapata (c. 1877-1919), widely attributed</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Full Width Image Section -->
+  <section class="full-width-image">
+    <img src="/img/zapata-full-band.webp" alt="Zapata Full Band">
+    <div class="image-caption">Zapata preparing for a show, early 1970s</div>
+  </section>
+
+  <!-- Text & Image Section -->
+  <section class="text-image-section">
+    <div class="text-column-wide">
+      <h2>Finding Success in the Early 1970s</h2>
+      <h3>Zapata's unique sound resonates with audiences across the city</h3>
+      <p>The band's reputation helped them expand from neighborhood venues to larger stages across the city. They frequently played at community events, nightclubs, and college campuses, bringing their high-energy performance and funky grooves to diverse audiences. In some sections of DC, Black audiences were often at first skeptical and somewhat hostile to these "spics" from the barrio; however, as soon as the music started, the grooves took over and a cultural exchange took place. By featuring timbales, congas, and bongos on funk and soul grooves, Zapata helped bridge cultural divides and expand the city's sonic palette.</p>
+    </div>
+    <div class="image-column-narrow">
+      <div class="image-wrapper">
+        <img src="/img/howard-hh-flyer.webp" alt="Howard University Flyer">
+        <div class="image-caption">Flyer for Zapata show with Herbie Hancock at Howard University (1974)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Poster Gallery Section -->
+  <section id="posters" class="poster-gallery">
+    <div class="poster-item">
+      <img src="/img/zapata-posters-1.webp" alt="Zapata Poster 1">
+    </div>
+    <div class="poster-item">
+      <img src="/img/zapata-posters-2.webp" alt="Zapata Poster 2">
+    </div>
+    <div class="poster-item">
+      <img src="/img/zapata-posters-3.webp" alt="Zapata Poster 3">
+    </div>
+    <div class="poster-item">
+      <img src="/img/zapata-posters-4.webp" alt="Zapata Poster 4">
+    </div>
+    <div class="poster-item">
+      <img src="/img/zapata-posters-5.webp" alt="Zapata Poster 5">
+    </div>
+  </section>
+
+  <!-- Poster Gallery Caption -->
+  <div class="poster-caption">
+    <p>Various Zapata Show Posters: 1971-1974 &mdash; From the Archives of Pepe González</p>
+  </div>
+
+  <!-- Poster Gallery Outro Text -->
+  <div class="poster-intro">
+    <p>Zapata found particular success at Howard and George Washington Universities, where they opened up for acts like <strong>Herbie Hancock</strong>, <strong>Miles Davis</strong>, <strong>Gil Scott-Heron</strong>, <strong>Exuma</strong>, and <strong>Bohannon</strong>. A 1973 show in Birmingham Alabama opening for <strong>Sly and The Family Stone</strong> gave the band exposure beyond DC and created possibilities for becoming a national act. This pivotal show would prove to be the band's apex as events would soon unfold that would redirect their trajectory.</p>
+  </div>
+
+  <!-- Text & Image Section -->
+  <section id = "coda" class="text-image-section text-image-section--reversed">
+    <div class="text-column-wide">
+      <h2>Losing Everything</h2>
+      <h3>But you can still go home</h3>
+      <p>From 1971 to 1974, the band was busy playing live shows and recording an album that they hoped to someday release with a major label. The recordings were kept in the possession of the band's manager, who was responsible for keeping them safe. After a falling out with his girlfriend, she left his belongings on a street corner and the album's reel-to-reel master tapes were thrown out with the trash and lost forever.</p>
+      <p>To make matters worse, years of drug and alcohol abuse had taken a heavy toll on the group and created conflict between members. The same street life they had tried to escape through their music eventually tore the band apart and by the summer of 1974, Zapata was done. Rudy, Eddie, and Pepe later reunited for a one-off project with Paul Sears called <strong><a href="https://paulsears.bandcamp.com/album/magick-theatre-live-1976" target="_blank" rel="noopener noreferrer">Magick Theatre</a></strong> in 1976, but the friends eventually went their separate ways. Some returned to their anti-social street activities, and others found new musical callings in jazz and traditional Latin music.</p>
+    </div>
+    <div class="image-column-narrow">
+      <div class="image-wrapper">
+        <img src="/img/pepe-red-hat.webp" alt="Pepe González">
+        <div class="image-caption">Pepe on bass, Early 1970s</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listen Section -->
+  <section id="listen" class="listen-section">
+    <div class="container">
+      <p>Earlier this century, Pepe discovered a cassette tape of a session that Zapata recorded some thirty years earlier. He had it transferred to CD but the quality of the recording was almost unlistenable and didn't do any justice for the band's legacy.</p>
+      <p>Thanks to modern technology, we are now able to finally share the music of Zapata with the world. This version was carefully remastered by <strong>Don Zientara</strong> and <strong>TJ Lipple</strong> in 2026 to preserve the original sound while enhancing clarity and detail to remove imperfections. We hope you enjoy this piece of music history and the unique sound of DC's <em>latinidad</em>.</p>
+      <a href="#" class="btn-listen">Play Album</a>
+    </div>
+  </section>
+
+  <!-- Acknowledgments / Credits / Sources -->
+  <section id="credits" class="credits-section">
+    <div class="credits-content">
+      <div class="credits-acknowledgments">
+        <h2>Acknowledgments</h2>
+        <p>A heartfelt thank you to <strong>Pepe González</strong> for his invaluable contributions and keeping the history and memory of Zapata alive. Thank you for preserving your archives and sharing them with us for this project.</p>
+        <p>To the members of <strong>Zapata</strong> &amp; <strong>the Outlaws</strong>, as well as your friends and families, thank you for your creations and contributions to DC culture. To those who have passed, may you rest in peace and your memory be a blessing.</p>
+        <p>To <strong>Sami Miranda</strong> and <strong>Franc Rosario</strong>: thank you for believing in this story, passing it down, and inspiring me to restore this important piece of DC cultural history. To <strong>Don Zientara</strong> and <strong>TJ Lipple</strong>, thank you for your work in remastering this recording. I am incredibly honored to collaborate with you both on this project.</p>
+        <p>To the incredible people of Washington, DC, thank you for being you and making this city and its culture great.</p>
+        <p>&mdash;<strong>PJ Urquilla</strong>, Upset the Setup</p>
+      </div>
+      <div class="credits-sources">
+        <h2>Credits &amp; Sources</h2>
+        <ul>
+          <li>Zapata Logo: <strong>Eduardo Africano</strong> </li>
+          <li>Photographs, Flyers & Posters: <strong>The Archives of Pepe González</strong> </li>
+          <li>Mount Pleasant Avenue Photograph: <strong>Historic Mount Pleasant</strong> </li>
+          <li>Mount Pleasant Map: <strong>DC Historic Preservation Office</strong></li>
+          <li>Historical Context: <a href="https://planning.dc.gov/sites/default/files/dc/sites/op/publication/attachments/The%20History%20of%20the%20Latino%20Community%20of%20Washington%2C%20DC%201943-1991.pdf" target="_blank">The History of the Latino Community of Washington, DC 1943-1991</a></li>
+          <li>Additional Background Information: <em><a href="https://www.youtube.com/watch?v=CLeXdMo9Uv4" target="_blank">Spanish Joe Remembers</a> </em>&mdash; A short film by <strong>Sami Miranda</strong> and <strong>Ellie Walton</strong></li>
+          <li>Viva La Revolución Poster: <strong>John A. Armendariz</strong>, courtesy of the National Museum of American History</li>
+          <li>Studio Console Photograph: <a href="https://unsplash.com/@caught_in_joy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Caught In Joy</a> on <a href="https://unsplash.com/photos/black-and-gray-audio-mixer-KhBjIa04XuA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 1963-2026 Pepe González. All rights reserved.</p>
+      <p>Website by <a href="https://pjux.io" target="_blank" rel="noopener noreferrer">PJUX.io</a></p>
+    </div>
+  </footer>
+  <script src="/css/player.js"></script>
+</body>
+</html>

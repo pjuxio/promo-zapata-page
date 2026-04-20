@@ -1,0 +1,15 @@
+{
+  "name": "promo-zapata-site-2026",
+  "version": "1.0.0",
+  "description": "Musical project promotional landing page",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": ["11ty", "eleventy", "music", "landing-page"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
