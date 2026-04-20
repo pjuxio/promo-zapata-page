@@ -4,7 +4,8 @@
   "description": "Musical project promotional landing page",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "convert:128": "bash scripts/convert-zapata-to-vbr.sh"
   },
   "keywords": ["11ty", "eleventy", "music", "landing-page"],
   "author": "",

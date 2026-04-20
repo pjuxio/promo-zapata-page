@@ -121,6 +121,22 @@ body {
   color: #fff;
 }
 
+.navbar-menu a.active {
+  color: #fff;
+  position: relative;
+}
+
+.navbar-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #d72127;
+  border-radius: 1px;
+}
+
 .navbar-toggle {
   display: none;
   background: none;
@@ -291,25 +307,6 @@ body {
 #about p {
   max-width: 100%;
   font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-}
-
-/* Streetcar Parallax Divider */
-.streetcar-divider {
-  background-image: url('/img/mtp-streetcar-1960.webp');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 65vh;
-  position: relative;
-  border-bottom: 40px solid #000;
-}
-
-.streetcar-divider::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(215, 33, 39, 0.6) 0%, transparent 25%);
 }
 
 /* Parallax Pull Quote Section */
@@ -610,6 +607,18 @@ body {
   font-style: italic;
 }
 
+.band-lineup-row {
+  background-color: #fff;
+  padding: 1.5rem 3rem;
+  text-align: center;
+}
+
+.band-lineup-row p {
+  margin: 0;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: #111;
+}
+
 /* Listen Button */
 .btn-listen {
   display: inline-block;
@@ -631,6 +640,29 @@ body {
   background-color: #b51d1f;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(215, 33, 39, 0.4);
+}
+
+/* Listen Button */
+.btn-purchase {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 2rem;
+  padding: 1rem 2.5rem;
+  background-color: #2ecc71;
+  color: #222222;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-purchase:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
 }
 
 /* Listen Section */
@@ -967,7 +999,12 @@ body {
   }
 
   .poster-gallery {
+    display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .poster-gallery .poster-item {
+    width: 100%;
   }
 }
 
