@@ -595,6 +595,7 @@ body {
   width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
+  margin: 0.5rem;
   padding: 0.85rem;
   box-sizing: border-box;
   transition: transform 0.32s ease, box-shadow 0.32s ease;
@@ -645,16 +646,17 @@ body {
 
 .poster-spotlight-inner {
   display: grid;
-  grid-template-columns: minmax(360px, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(420px, 1.1fr) minmax(0, 1fr);
   gap: 1.5rem;
-  width: min(100%, 1200px);
+  width: min(100%, 1400px);
   margin: 0 auto;
   align-items: center;
 }
 
 .poster-spotlight-image {
-  width: clamp(320px, 95%, 460px);
+  width: clamp(380px, 100%, 540px);
   justify-self: center;
+  margin: 0.5rem auto;
   aspect-ratio: 3 / 4;
   overflow: hidden;
   transition: transform 0.32s ease, box-shadow 0.32s ease;
@@ -677,7 +679,7 @@ body {
 
 .poster-spotlight-copy p {
   margin: 0;
-  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-size: clamp(1rem, 1vw, 1.2rem);
   line-height: 1.7;
   max-width: 60ch;
 }
@@ -697,6 +699,7 @@ body {
   width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
+  margin: 0.5rem;
   padding: 1rem;
   transition: transform 0.32s ease, box-shadow 0.32s ease;
   will-change: transform;
