@@ -561,6 +561,10 @@ body {
   line-height: 1.75;
 }
 
+.poster-intro p + p {
+  margin-top: 1.5rem;
+}
+
 /* Poster Gallery Section */
 .poster-gallery {
   display: grid;
