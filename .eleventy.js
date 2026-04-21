@@ -7,6 +7,9 @@ module.exports = function(eleventyConfig) {
   
   // Copy mp3 folder to output
   eleventyConfig.addPassthroughCopy("mp3");
+
+  // Copy js folder to output
+  eleventyConfig.addPassthroughCopy("js");
   
   return {
     dir: {

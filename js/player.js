@@ -4,6 +4,8 @@ const playBtn = document.getElementById('playBtn');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const navVolumeBtn = document.getElementById('navVolumeBtn');
+const listenStartBtn = document.getElementById('listenStartBtn');
+const listenSectionBtn = document.getElementById('listenSectionBtn');
 const progressBar = document.querySelector('.progress-bar');
 const progressFill = document.querySelector('.progress-fill');
 const currentTimeEl = document.querySelector('.current-time');
@@ -22,6 +24,13 @@ function ensureCurrentTrackLoaded() {
   if (!audio.getAttribute('src')) {
     audio.src = tracks[currentTrackIndex].src;
   }
+}
+
+function setPlayState(playing) {
+  playBtn.classList.toggle('playing', playing);
+  playBtn.innerHTML = playing
+    ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>`
+    : `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
 }
 
 // Format time
@@ -47,21 +56,26 @@ playBtn.addEventListener('click', () => {
   if (audio.paused) {
     ensureCurrentTrackLoaded();
     audio.play();
-    playBtn.classList.add('playing');
-    playBtn.innerHTML = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-      </svg>
-    `;
+    setPlayState(true);
   } else {
     audio.pause();
-    playBtn.classList.remove('playing');
-    playBtn.innerHTML = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    `;
+    setPlayState(false);
   }
+});
+
+// Listen button in player header — start playing from current track
+listenStartBtn.addEventListener('click', () => {
+  ensureCurrentTrackLoaded();
+  audio.play();
+  setPlayState(true);
+});
+
+// Listen button in the listen section — start playing from track 1
+listenSectionBtn.addEventListener('click', () => {
+  currentTrackIndex = 0;
+  loadTrack();
+  audio.play();
+  setPlayState(true);
 });
 
 // Previous track
@@ -93,12 +107,7 @@ trackItems.forEach((item, index) => {
     currentTrackIndex = index;
     loadTrack();
     audio.play();
-    playBtn.classList.add('playing');
-    playBtn.innerHTML = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-      </svg>
-    `;
+    setPlayState(true);
   });
 });
 
@@ -124,6 +133,7 @@ audio.addEventListener('ended', () => {
   currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
   loadTrack();
   audio.play();
+  setPlayState(true);
 });
 
 // Volume button — drag up/down to adjust, click to mute
@@ -232,7 +242,7 @@ const navSections = Array.from(navLinks)
   });
 
 function updateActiveNav() {
-  const scrollY = window.scrollY + 80;
+  const scrollY = window.scrollY + navbar.offsetHeight;
   let activeLink = navSections[0].link;
 
   for (const { link, el } of navSections) {
@@ -244,6 +254,48 @@ function updateActiveNav() {
 
 window.addEventListener('scroll', updateActiveNav, { passive: true });
 updateActiveNav();
+
+// Poster modal
+const posterModal = document.getElementById('posterModal');
+const posterModalImg = document.getElementById('posterModalImg');
+const posterModalClose = document.getElementById('posterModalClose');
+
+document.querySelectorAll('.poster-trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const img = btn.querySelector('img');
+    posterModalImg.src = img.src;
+    posterModalImg.alt = img.alt;
+    posterModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    posterModalClose.focus();
+  });
+});
+
+function closeModal() {
+  posterModal.hidden = true;
+  document.body.style.overflow = '';
+}
+
+posterModalClose.addEventListener('click', closeModal);
+posterModal.addEventListener('click', e => { if (e.target === posterModal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !posterModal.hidden) closeModal(); });
+
+// Email signup
+const signupForm = document.querySelector('.signup-form');
+if (signupForm) {
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(signupForm);
+    try {
+      await fetch('/', { method: 'POST', body: new URLSearchParams(data) });
+      signupForm.closest('.footer-signup').innerHTML =
+        '<p class="signup-success">Thanks for signing up. We\'ll be in touch.</p>';
+    } catch {
+      signupForm.closest('.footer-signup').innerHTML =
+        '<p class="signup-error">Something went wrong. Please try again later.</p>';
+    }
+  });
+}
 
 // Initialize
 audio.volume = 1;

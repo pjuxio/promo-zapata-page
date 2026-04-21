@@ -62,11 +62,11 @@ SETUP
       </button>
     </div>
     <ul class="navbar-menu">
-      <li><a href="#listen">Listen</a></li>
       <li><a href="#about">Origins</a></li>
       <li><a href="#rev">Revolution</a></li>
       <li><a href="#posters">Posters</a></li>
       <li><a href="#coda">Coda</a></li>
+      <li><a href="#listen">Listen</a></li>
       <li><a href="#credits">Notes</a></li>
     </ul>
     <button class="navbar-toggle" id="navToggle" aria-label="Toggle menu">
@@ -103,7 +103,15 @@ SETUP
     <div class="player-section">
       <div class="player-header">
         <h1>Zapata: The Lost Tape (1971)</h1>
-        <a href="https://finding-zapata.bandcamp.com/album/the-lost-tape" target="blank" class="btn-purchase">Purchase Album</a>
+        <div class="player-header-actions">
+          <button class="btn-listen-start" id="listenStartBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+            Listen
+          </button>
+          <a href="https://finding-zapata.bandcamp.com/album/the-lost-tape" target="_blank" rel="noopener noreferrer" class="btn-purchase">Purchase Album</a>
+        </div>
       </div>
 
       <div class="now-playing">
@@ -175,7 +183,7 @@ SETUP
     <div class="text-column">
       <h2>Establishing Roots</h2>
       <h3>Early 1960s in Mount Pleasant</h3>
-      <p>Immigrants from Latin America had been establishing a presence in Washington since the early 1940s. By 1960, roughly 10,000 Spanish-speaking individuals were living in DC — more than triple the community's share of the population a decade earlier <a href="https://planning.dc.gov/sites/default/files/dc/sites/op/publication/attachments/The%20History%20of%20the%20Latino%20Community%20of%20Washington%2C%20DC%201943-1991.pdf" target="blank">(McMahon, 2025)</a> — and they were forming communities in neighborhoods like Mount Pleasant and Adams Morgan. The city was still segregated at the time, and Latinos faced discrimination from both Black and white residents alike. As the decade unfolded, young Latinos were struggling to find their place in a divided society and America's binary racial system.</p>
+      <p>Immigrants from Latin America had been establishing a presence in Washington since the early 1940s. By 1960, roughly 10,000 Spanish-speaking individuals were living in DC — more than triple the community's share of the population a decade earlier <a href="https://planning.dc.gov/sites/default/files/dc/sites/op/publication/attachments/The%20History%20of%20the%20Latino%20Community%20of%20Washington%2C%20DC%201943-1991.pdf" target="_blank" rel="noopener noreferrer">(McMahon, 2025)</a> — and they were forming communities in neighborhoods like Mount Pleasant and Adams Morgan. The city was still segregated at the time, and Latinos faced discrimination from both Black and white residents alike. As the decade unfolded, young Latinos were struggling to find their place in a divided society and America's binary racial system.</p>
 
       <p>Against this backdrop, three teenagers started playing music together in Mount Pleasant. Childhood friends <strong>Ernie Herrera</strong>, <strong>Rudy Morales</strong>, and <strong>Pepe González</strong> performed in the neighborhood &mdash; hosting shows for their friends in basements, garages, and community centers. Drawing influences from popular soul and rock music, they mixed these genres with their parents' cultural traditions to forge a unique sound that would later become <strong>Zapata</strong>.</p>
     </div>
@@ -223,7 +231,7 @@ SETUP
   <section class="text-image-section">
     <div class="text-column-wide">
       <h2>There's Something Happening Here</h2>
-      <h3>Expanding consciousness and new perspectives in the late 1960s</h3>
+      <h3>Expanding consciousness and new perspectives from the 1960s into the 1970s</h3>
       <p>As the Civil Rights and anti-war movements gained momentum, expanding the political consciousness of young people across the country, the rebel identity of the Outlaws crew evolved into a more positive and creative expression. They began to see themselves as artists and musicians, rather than gangsters, and used their music as a platform for social change and cultural expression.<p>
         The original trio added on new members including <strong>Eduardo Africano</strong> on drums, Ernie's brother <strong>Miguel Herrera</strong> on guitar, <strong>Mike and Tony Duncanson</strong> on congas and bongos, and <strong>Mosheesh Akbar</strong> on saxophone and flute. They experimented with new sounds, instruments, and styles (as well as drugs, let's be honest), drawing inspiration from the music of the era. They also embraced the counterculture values of peace, love, and unity, and used their music to promote these ideals in the community. It was this shift in consciousness that led to the formation of Zapata.
       </p>
@@ -239,7 +247,7 @@ SETUP
   <!-- Full Width Image Section -->
   <section class="full-width-image">
     <img src="/img/zapata-outside-performance.webp" alt="Zapata Performance" loading="lazy" decoding="async">
-    <div class="image-caption">An early formation of <strong>Zapata</strong> performing in DC for a community festival (Late 1960s)</div>
+    <div class="image-caption">Zapata performing in DC for a community festival (c. 1970s)</div>
   </section>
 
   <!-- Text & Image Section -->
@@ -247,7 +255,7 @@ SETUP
     <div class="text-column-wide">
       <h2>From Rebel to Revolutionary</h2>
       <h3>Embracing a new identity and purpose as Zapata</h3>
-      <p>The group searched for a new band name and they looked to other revolutionary leaders for possible inspiration. Latin American Communist icons like <strong>Fidel Castro</strong> and <strong>Che Guevara</strong> were considered, but there were debates over ideology, dogma, and revolutionary tactics. Eventually the group chose to honor <strong>Emiliano Zapata</strong>, a Mexican revolutionary leader who fought for social justice and land reform.</p>
+      <p>The group searched for a new band name and they looked to revolutionary leaders for possible inspiration. Latin American Communist icons like <strong>Fidel Castro</strong> and <strong>Che Guevara</strong> were considered, but there were debates over ideology, dogma, and revolutionary tactics. Eventually the group chose to honor <strong>Emiliano Zapata</strong>, a Mexican revolutionary leader who fought for social justice and land reform.</p>
     </div>
     <div class="image-column-narrow">
       <div class="image-wrapper">
@@ -300,16 +308,24 @@ SETUP
   <section class="poster-feature-row" aria-label="Featured Zapata posters">
     <div class="poster-feature-grid">
       <div class="poster-feature-item">
-        <img src="/img/zapata-posters-1.webp" alt="Featured Zapata Poster 1" loading="lazy" decoding="async">
+        <button class="poster-trigger" aria-label="View poster 1">
+          <img src="/img/zapata-posters-1.webp" alt="Featured Zapata Poster 1" loading="lazy" decoding="async">
+        </button>
       </div>
       <div class="poster-feature-item">
-        <img src="/img/zapata-posters-2.webp" alt="Featured Zapata Poster 2" loading="lazy" decoding="async">
+        <button class="poster-trigger" aria-label="View poster 2">
+          <img src="/img/zapata-posters-2.webp" alt="Featured Zapata Poster 2" loading="lazy" decoding="async">
+        </button>
       </div>
       <div class="poster-feature-item">
-        <img src="/img/zapata-posters-3.webp" alt="Featured Zapata Poster 3" loading="lazy" decoding="async">
+        <button class="poster-trigger" aria-label="View poster 3">
+          <img src="/img/zapata-posters-3.webp" alt="Featured Zapata Poster 3" loading="lazy" decoding="async">
+        </button>
       </div>
       <div class="poster-feature-item">
-        <img src="/img/zapata-posters-4.webp" alt="Featured Zapata Poster 4" loading="lazy" decoding="async">
+        <button class="poster-trigger" aria-label="View poster 4">
+          <img src="/img/zapata-posters-4.webp" alt="Featured Zapata Poster 4" loading="lazy" decoding="async">
+        </button>
       </div>
     </div>
     <aside class="poster-feature-copy">
@@ -321,11 +337,22 @@ SETUP
   <section class="poster-spotlight-row" aria-label="Zapata poster spotlight">
     <div class="poster-spotlight-inner">
       <div class="poster-spotlight-image">
-        <img src="/img/zapata-posters-5.webp" alt="Zapata Poster 5" loading="lazy" decoding="async">
+        <button class="poster-trigger" aria-label="View poster 5">
+          <img src="/img/zapata-posters-5.webp" alt="Zapata Poster 5" loading="lazy" decoding="async">
+        </button>
       </div>
       <div class="poster-spotlight-copy">
         <p>A 1973 show in Birmingham, Alabama opening for <strong>Sly and The Family Stone</strong> gave the band exposure beyond DC and created possibilities for becoming a national act. This pivotal show would prove to be the band's apex as events  soon unfolded that would redirect their trajectory.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- Poster CTA -->
+  <section class="poster-cta-section">
+    <div class="container">
+      <h2>Help us preserve the collection</h2>
+      <p><a href="https://finding-zapata.bandcamp.com/album/the-lost-tape" target="_blank" rel="noopener noreferrer">Purchase the album on Bandcamp</a> and please contribute additional funds to support our efforts to restore and preserve this collection of vintage posters.</p>
+      <a href="https://finding-zapata.bandcamp.com/album/the-lost-tape" target="_blank" rel="noopener noreferrer" class="btn-purchase">Purchase on Bandcamp</a>
     </div>
   </section>
 
@@ -350,7 +377,7 @@ SETUP
     <div class="container">
       <p>Earlier this century, Pepe discovered a cassette tape of a session that Zapata recorded some thirty years earlier. He had it transferred to CD but the quality of the recording was almost unlistenable and didn't do any justice for the band's legacy.</p>
       <p>Thanks to modern technology, we are now able to finally share the music of Zapata with the world. This version was carefully remastered by <strong>Don Zientara</strong> and <strong>TJ Lipple</strong> in 2026 to preserve the original sound while enhancing clarity and detail to remove imperfections. We hope you enjoy this piece of music history and the unique sound of DC's <em>latinidad</em>.</p>
-      <a href="#" class="btn-listen">Play Album</a>
+      <button id="listenSectionBtn" class="btn-listen">Play Album</button>
     </div>
   </section>
 
@@ -361,7 +388,7 @@ SETUP
         <h2>Acknowledgments</h2>
         <p>A heartfelt thank you to <strong>Pepe González</strong> for his invaluable contributions and keeping the history and memory of Zapata alive. Thank you for preserving and sharing your archives as well as your stories.</p>
         <p>To the members of <strong>Zapata</strong> &amp; <strong>the Outlaws</strong>, as well as your friends and families, thank you for your creations and contributions to DC culture. To those who have passed, may you rest in peace and your memory be a blessing.</p>
-        <p>To <strong>Sami Miranda</strong> and <strong>Franc Rosario</strong>: thank you for believing in this story, passing it down, and inspiring me to restore this important piece of DC cultural history. To <strong>Don Zientara</strong> and <strong>TJ Lipple</strong>, thank you for your work in remastering this recording. I am incredibly honored to collaborate with you both on this project.</p>
+        <p>To <strong>Sami Miranda</strong> and <strong>Franc Rosario</strong>: thank you for believing in this story, passing it down, and inspiring me to restore this important piece of DC cultural history. To <strong>Don Zientara</strong> and <strong>TJ Lipple</strong>, thank you for your work in remastering this recording. I am incredibly honored to collaborate with you all on this project.</p>
         <p>To the incredible people of Washington, DC, thank you for being you and making this city and its culture great.</p>
         <p>&mdash;<strong>PJ Urquilla</strong>, Upset the Setup</p>
       </div>
@@ -372,7 +399,7 @@ SETUP
           <li>Photographs, Flyers & Posters: <strong>The Archives of Pepe González</strong> </li>
           <li>Mount Pleasant Map: <strong>DC Historic Preservation Office</strong></li>
           <li>Historical Context: <a href="https://planning.dc.gov/sites/default/files/dc/sites/op/publication/attachments/The%20History%20of%20the%20Latino%20Community%20of%20Washington%2C%20D.C.%201943-1991.pdf" target="_blank">The History of the Latino Community of Washington, DC 1943-1991</a></li>
-          <li>Additional Background Information: <em><a href="https://www.youtube.com/watch?v=CLeXdMo9Uv4" target="_blank">Spanish Joe Remembers</a> </em>&mdash; A short film by <strong>Sami Miranda</strong> and <strong>Ellie Walton</strong></li>
+          <li>Additional Background Information and Digital Archives: <em><a href="https://www.youtube.com/watch?v=CLeXdMo9Uv4" target="_blank">Spanish Joe Remembers</a> </em>&mdash; A short film by <strong>Sami Miranda</strong> and <strong>Ellie Walton</strong></li>
           <li>Viva La Revolución Poster: <strong>John A. Armendariz</strong>, courtesy of the National Museum of American History</li>
           <li>Studio Console Photograph: <a href="https://unsplash.com/@caught_in_joy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Caught In Joy</a> on <a href="https://unsplash.com/photos/black-and-gray-audio-mixer-KhBjIa04XuA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
       </li>
@@ -382,13 +409,30 @@ SETUP
   </section>
   </main>
 
+  <!-- Poster Modal -->
+  <div class="poster-modal" id="posterModal" role="dialog" aria-modal="true" aria-label="Poster viewer" hidden>
+    <button class="poster-modal-close" id="posterModalClose" aria-label="Close">&times;</button>
+    <img class="poster-modal-img" id="posterModalImg" src="" alt="">
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
+      <div class="footer-signup">
+      <h2>Get updates on the project</h2>
+      <p>Sign up for emails from Zapata with the events, updates, and more.</p>
+      <form name="zapata-signup" method="POST" netlify class="signup-form">
+        <input type="hidden" name="form-name" value="zapata-signup">
+        <div class="signup-fields">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
       <p>&copy; 1963-2026 Pepe González. All rights reserved.</p>
       <p>Website by <a href="https://pjux.io" target="_blank" rel="noopener noreferrer">PJUX.io</a></p>
     </div>
   </footer>
-  <script src="/css/player.js"></script>
+  <script src="/js/player.js"></script>
 </body>
 </html>
