@@ -787,7 +787,7 @@ body {
 .btn-purchase {
   display: inline-block;
   width: fit-content;
-  margin-top: 2rem;
+  margin-top: 24px;
   padding: 1rem 2.5rem;
   background-color: #2ecc71;
   color: #222222;
