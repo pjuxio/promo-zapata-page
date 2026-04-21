@@ -40,17 +40,17 @@ SETUP
   <nav class="navbar">
     <a href="#" class="navbar-brand">Finding Zapata</a>
     <div class="navbar-controls">
-      <button class="control-btn" id="prevBtn">
+      <button class="control-btn" id="prevBtn" aria-label="Previous track">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
         </svg>
       </button>
-      <button class="control-btn play-btn" id="playBtn">
+      <button class="control-btn play-btn" id="playBtn" aria-label="Play or pause">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M8 5v14l11-7z"/>
         </svg>
       </button>
-      <button class="control-btn" id="nextBtn">
+      <button class="control-btn" id="nextBtn" aria-label="Next track">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
           <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
         </svg>
@@ -78,6 +78,7 @@ SETUP
       </svg>
     </button>
   </nav>
+  <main id="main-content">
   <!-- Player Section -->
   <div class="player-container">
     <div class="album-art">
@@ -379,6 +380,7 @@ SETUP
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">

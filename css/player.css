@@ -328,6 +328,12 @@
   color: #d72127;
 }
 
+@media (min-width: 1025px) {
+  .album-art {
+    padding-top: 32px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .player-page {

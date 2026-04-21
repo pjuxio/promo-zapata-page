@@ -912,14 +912,18 @@ body {
 }
 
 .footer a {
-  color: #d72127;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  color: var(--text-light);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 2px;
+  transition: text-decoration-color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #b51d1f;
-  text-decoration: underline;
+  color: var(--text-light);
+  text-decoration-color: #ff6b6f;
 }
 
 .social-links {
