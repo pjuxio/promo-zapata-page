@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: minmax(400px, 600px) 1fr;
   grid-template-rows: auto 1fr;
-  padding-top: 2rem;
+  padding-top: calc(56px + 2rem);
   width: 100%;
   min-height: 95vh;
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
