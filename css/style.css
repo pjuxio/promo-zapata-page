@@ -23,6 +23,11 @@ body {
   color: var(--text-dark);
 }
 
+section[id],
+div[id] {
+  scroll-margin-top: 72px;
+}
+
 /* Navbar */
 .navbar {
   position: fixed;

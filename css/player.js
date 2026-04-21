@@ -200,7 +200,21 @@ navToggle.addEventListener('click', (e) => {
 });
 
 document.querySelectorAll('.navbar-menu a').forEach(link => {
-  link.addEventListener('click', () => navbar.classList.remove('open'));
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+
+    if (href && href.startsWith('#') && href.length > 1) {
+      const target = document.getElementById(href.slice(1));
+      if (target) {
+        e.preventDefault();
+        const navOffset = navbar.offsetHeight + 12;
+        const targetY = target.getBoundingClientRect().top + window.scrollY - navOffset;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+    }
+
+    navbar.classList.remove('open');
+  });
 });
 
 document.addEventListener('click', (e) => {
