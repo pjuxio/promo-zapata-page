@@ -413,6 +413,17 @@ div[id] {
   color: var(--text-dark);
 }
 
+.outlaws-section {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.outlaws-section .text-column-wide {
+  flex: 0 1 70%;
+  max-width: 70%;
+}
+
 .image-column-narrow {
   flex: 1;
   overflow: hidden;
@@ -934,6 +945,11 @@ div[id] {
     padding: 3rem 2rem;
   }
 
+  .outlaws-section .text-column-wide {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
   .image-column-narrow {
     padding: 0;
     min-height: unset;
@@ -1013,6 +1029,11 @@ div[id] {
 
   .text-column-wide {
     padding: 2.5rem 1.5rem;
+  }
+
+  .outlaws-section .text-column-wide {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 
   .image-column-narrow {
