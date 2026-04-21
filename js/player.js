@@ -218,7 +218,7 @@ document.querySelectorAll('.navbar-menu a').forEach(link => {
       if (target) {
         e.preventDefault();
         const navOffset = navbar.offsetHeight + 12;
-        const targetY = target.getBoundingClientRect().top + window.scrollY - navOffset;
+        const targetY = target.offsetTop - navOffset;
         window.scrollTo({ top: targetY, behavior: 'smooth' });
       }
     }
@@ -243,7 +243,7 @@ const navSections = Array.from(navLinks)
 
 function updateActiveNav() {
   const scrollY = window.scrollY + navbar.offsetHeight;
-  let activeLink = navSections[0].link;
+  let activeLink = null;
 
   for (const { link, el } of navSections) {
     if (el && el.offsetTop <= scrollY) activeLink = link;
