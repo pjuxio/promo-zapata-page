@@ -126,21 +126,6 @@ div[id] {
   color: #fff;
 }
 
-.navbar-menu a.active {
-  color: #fff;
-  position: relative;
-}
-
-.navbar-menu a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #d72127;
-  border-radius: 1px;
-}
 
 .navbar-toggle {
   display: none;

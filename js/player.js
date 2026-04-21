@@ -222,29 +222,6 @@ document.addEventListener('click', (e) => {
   if (!navbar.contains(e.target)) navbar.classList.remove('open');
 });
 
-// Active nav link on scroll
-const navLinks = document.querySelectorAll('.navbar-menu a');
-const navSections = Array.from(navLinks)
-  .map(link => {
-    const href = link.getAttribute('href');
-    const id = href === '#' ? null : href.slice(1);
-    const el = id ? document.getElementById(id) : null;
-    return { link, el };
-  });
-
-function updateActiveNav() {
-  const scrollY = window.scrollY + navbar.offsetHeight;
-  let activeLink = null;
-
-  for (const { link, el } of navSections) {
-    if (el && el.offsetTop <= scrollY) activeLink = link;
-  }
-
-  navLinks.forEach(l => l.classList.toggle('active', l === activeLink));
-}
-
-window.addEventListener('scroll', updateActiveNav, { passive: true });
-updateActiveNav();
 
 // Poster modal
 const posterModal = document.getElementById('posterModal');
