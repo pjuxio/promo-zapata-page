@@ -339,6 +339,11 @@ div[id] {
   text-align: left;
 }
 
+.image-caption a {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+
 .text-column {
   flex: 1;
   display: flex;
