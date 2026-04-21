@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 2rem 2rem 0;
+  padding: 0 2rem 0;
 }
 
 .album-art img {
@@ -229,11 +229,6 @@
   color: #ffffff;
 }
 
-@media (min-width: 1025px) {
-  .album-art {
-    padding-top: 32px;
-  }
-}
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -252,7 +247,7 @@
 
   .album-art {
     order: 1;
-    padding: 2rem 1.5rem 0;
+    padding: 0 1.5rem 0;
   }
 
   .player-section {
@@ -268,8 +263,7 @@
 
 @media (max-width: 768px) {
   .album-art {
-    margin-top: 24px;
-    padding: 24px 1.5rem 0;
+    padding: 0 1.5rem 0;
   }
 
   .album-art img {
