@@ -603,28 +603,6 @@ div[id] {
   filter: saturate(1.06) contrast(1.03);
 }
 
-/* Listen Button */
-.btn-listen {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 2rem;
-  padding: 1rem 2.5rem;
-  background-color: #2ecc71;
-  color: #222222;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.btn-listen:hover {
-  background-color: #27ae60;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
-}
 
 .player-header-actions {
   display: flex;

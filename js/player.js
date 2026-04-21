@@ -5,7 +5,6 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const navVolumeBtn = document.getElementById('navVolumeBtn');
 const listenStartBtn = document.getElementById('listenStartBtn');
-const listenSectionBtn = document.getElementById('listenSectionBtn');
 const progressBar = document.querySelector('.progress-bar');
 const progressFill = document.querySelector('.progress-fill');
 const currentTimeEl = document.querySelector('.current-time');
@@ -66,14 +65,6 @@ playBtn.addEventListener('click', () => {
 // Listen button in player header — start playing from current track
 listenStartBtn.addEventListener('click', () => {
   ensureCurrentTrackLoaded();
-  audio.play();
-  setPlayState(true);
-});
-
-// Listen button in the listen section — start playing from track 1
-listenSectionBtn.addEventListener('click', () => {
-  currentTrackIndex = 0;
-  loadTrack();
   audio.play();
   setPlayState(true);
 });
