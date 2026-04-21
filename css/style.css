@@ -1122,6 +1122,7 @@ body {
   .image-column-narrow {
     padding: 0;
     min-height: unset;
+    margin-top: 2rem;
   }
 
   .image-column-narrow img {
@@ -1171,7 +1172,11 @@ body {
 
   .poster-feature-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2rem;
+  }
+
+  .poster-feature-item {
+    margin: 0;
   }
 
   .poster-spotlight-row {
