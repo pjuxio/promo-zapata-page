@@ -17,8 +17,12 @@ const tracks = Array.from(trackItems).map(item => ({
   duration: parseInt(item.dataset.duration)
 }));
 
-// Initialize first track
-audio.src = tracks[currentTrackIndex].src;
+// Keep the first track selected in UI, but don't fetch audio until interaction.
+function ensureCurrentTrackLoaded() {
+  if (!audio.getAttribute('src')) {
+    audio.src = tracks[currentTrackIndex].src;
+  }
+}
 
 // Format time
 function formatTime(seconds) {
@@ -41,6 +45,7 @@ function updateTrackInfo() {
 // Play/Pause
 playBtn.addEventListener('click', () => {
   if (audio.paused) {
+    ensureCurrentTrackLoaded();
     audio.play();
     playBtn.classList.add('playing');
     playBtn.innerHTML = `
