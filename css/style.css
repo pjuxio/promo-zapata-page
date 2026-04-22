@@ -486,6 +486,11 @@ div[id] {
   width: 100%;
 }
 
+.media-column img,
+.image-wrapper img {
+  cursor: zoom-in;
+}
+
 .poster-heading {
   background-color: #000;
   text-align: center;

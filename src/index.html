@@ -155,6 +155,18 @@ SETUP
           </div>
         </div>
       </div>
+
+      <div class="email-gate-prompt" id="emailGatePrompt" hidden aria-hidden="true" role="status" aria-live="polite">
+        <p class="email-gate-message">You have previewed all 6 songs. Enter your email to unlock continued listening.</p>
+        <form class="email-gate-form" id="emailGateForm" name="zapata-signup" method="POST" netlify>
+          <input type="hidden" name="form-name" value="zapata-signup">
+          <label class="sr-only" for="email-gate-input">Email Address</label>
+          <input type="email" id="email-gate-input" name="email" placeholder="Your email address" required>
+          <button type="submit" class="email-gate-btn email-gate-btn-primary">Unlock Listening</button>
+          <button type="button" class="email-gate-btn email-gate-btn-secondary" id="emailGateDismissBtn">Snooze</button>
+        </form>
+        <p class="email-gate-feedback" id="emailGateFeedback" hidden></p>
+      </div>
     </div>
   </div>
 

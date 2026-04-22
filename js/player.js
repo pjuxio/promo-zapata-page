@@ -10,6 +10,7 @@ const progressFill = document.querySelector('.progress-fill');
 const currentTimeEl = document.querySelector('.current-time');
 const trackTitle = document.querySelector('.track-title');
 const trackItems = document.querySelectorAll('.track-item');
+const signupForm = document.querySelector('.signup-form');
 
 let currentTrackIndex = 0;
 const tracks = Array.from(trackItems).map(item => ({
@@ -71,24 +72,26 @@ listenStartBtn.addEventListener('click', () => {
 
 // Previous track
 prevBtn.addEventListener('click', () => {
+  const shouldAutoplay = !audio.paused;
   currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-  loadTrack();
+  loadTrack(shouldAutoplay);
 });
 
 // Next track
 nextBtn.addEventListener('click', () => {
+  const shouldAutoplay = !audio.paused;
   currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-  loadTrack();
+  loadTrack(shouldAutoplay);
 });
 
 // Load track
-function loadTrack() {
-  const wasPlaying = !audio.paused;
+function loadTrack(autoplay = false) {
   audio.src = tracks[currentTrackIndex].src;
   updateTrackInfo();
 
-  if (wasPlaying) {
+  if (autoplay) {
     audio.play().catch(() => setPlayState(false));
+    setPlayState(true);
   }
 }
 
@@ -96,10 +99,7 @@ function loadTrack() {
 trackItems.forEach((item, index) => {
   item.addEventListener('click', () => {
     currentTrackIndex = index;
-    audio.src = tracks[currentTrackIndex].src;
-    updateTrackInfo();
-    audio.play().catch(() => setPlayState(false));
-    setPlayState(true);
+    loadTrack(true);
   });
 });
 
@@ -123,8 +123,7 @@ progressBar.addEventListener('click', (e) => {
 // Auto play next
 audio.addEventListener('ended', () => {
   currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-  loadTrack();
-  setPlayState(true);
+  loadTrack(true);
 });
 
 // Volume button — drag up/down to adjust, click to mute
@@ -228,14 +227,26 @@ const posterModal = document.getElementById('posterModal');
 const posterModalImg = document.getElementById('posterModalImg');
 const posterModalClose = document.getElementById('posterModalClose');
 
+function openPosterModalFromImage(img) {
+  if (!img || !posterModal || !posterModalImg) return;
+  posterModalImg.src = img.src;
+  posterModalImg.alt = img.alt;
+  posterModal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  posterModalClose.focus();
+}
+
 document.querySelectorAll('.poster-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const img = btn.querySelector('img');
-    posterModalImg.src = img.src;
-    posterModalImg.alt = img.alt;
-    posterModal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    posterModalClose.focus();
+    openPosterModalFromImage(img);
+  });
+});
+
+document.querySelectorAll('.media-column img, .image-wrapper img, .album-art img').forEach(img => {
+  if (img.closest('.poster-trigger')) return;
+  img.addEventListener('click', () => {
+    openPosterModalFromImage(img);
   });
 });
 
@@ -249,13 +260,12 @@ posterModal.addEventListener('click', e => { if (e.target === posterModal) close
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !posterModal.hidden) closeModal(); });
 
 // Email signup
-const signupForm = document.querySelector('.signup-form');
 if (signupForm) {
   signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(signupForm);
     try {
-      await fetch('/', { method: 'POST', body: new URLSearchParams(data) });
+      await submitEmailSignup(signupForm);
+      setEmailUnlocked();
       signupForm.closest('.footer-signup').innerHTML =
         '<p class="signup-success">Thanks for signing up. We\'ll be in touch.</p>';
     } catch {
@@ -265,7 +275,42 @@ if (signupForm) {
   });
 }
 
+if (emailGateForm) {
+  emailGateForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearEmailGateFeedback();
+
+    try {
+      await submitEmailSignup(emailGateForm);
+      setEmailUnlocked();
+    } catch {
+      if (emailGateFeedback) {
+        emailGateFeedback.hidden = false;
+        emailGateFeedback.textContent = 'Something went wrong. Please try again.';
+      }
+    }
+  });
+}
+
+if (emailGateDismissBtn) {
+  emailGateDismissBtn.addEventListener('click', () => {
+    if (emailGateSnoozeCount < MAX_EMAIL_GATE_SNOOZES) {
+      emailGateSnoozeCount += 1;
+      snoozePreviewPlaysRemaining = FREE_TRACK_LIMIT;
+      hideEmailUnlockPrompt();
+      return;
+    }
+
+    updateSnoozeButtonState();
+    if (emailGateFeedback) {
+      emailGateFeedback.hidden = false;
+      emailGateFeedback.textContent = 'Snooze limit reached. Enter your email to continue listening.';
+    }
+  });
+}
+
 // Initialize
 audio.volume = 1;
 updateVolumeIcon();
 updateTrackInfo();
+updateSnoozeButtonState();

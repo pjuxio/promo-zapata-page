@@ -65,6 +65,10 @@ netlify deploy --prod
 5. Netlify will auto-detect the build settings from `netlify.toml`
 6. Click "Deploy site"
 
+## Operations
+
+- Audio delivery and abuse-protection plan: [docs/audio-delivery-protection-plan.md](docs/audio-delivery-protection-plan.md)
+
 ## Project Structure
 
 ```
