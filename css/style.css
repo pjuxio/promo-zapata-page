@@ -253,7 +253,7 @@ div[id] {
 .quote-container {
   position: relative;
   z-index: 1;
-  max-width: 1000px;
+  max-width: 1200px;
   padding: 3rem;
   text-align: center;
 }
