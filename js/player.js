@@ -8,6 +8,7 @@ const listenStartBtn = document.getElementById('listenStartBtn');
 const progressBar = document.querySelector('.progress-bar');
 const progressFill = document.querySelector('.progress-fill');
 const currentTimeEl = document.querySelector('.current-time');
+const playbackStatusEl = document.getElementById('playbackStatus');
 const trackTitle = document.querySelector('.track-title');
 const trackItems = document.querySelectorAll('.track-item');
 const signupForm = document.querySelector('.signup-form');
@@ -19,11 +20,35 @@ const tracks = Array.from(trackItems).map(item => ({
   duration: parseInt(item.dataset.duration)
 }));
 
+let isBuffering = false;
+
 // Keep the first track selected in UI, but don't fetch audio until interaction.
 function ensureCurrentTrackLoaded() {
   if (!audio.getAttribute('src')) {
     audio.src = tracks[currentTrackIndex].src;
   }
+}
+
+function getTrackDuration(index) {
+  if (index === currentTrackIndex && Number.isFinite(audio.duration) && audio.duration > 0) {
+    return audio.duration;
+  }
+  return tracks[index].duration;
+}
+
+function updateCurrentTimeDisplay(seconds) {
+  currentTimeEl.textContent = formatTime(seconds);
+}
+
+function setPlaybackStatus(message = '') {
+  if (!playbackStatusEl) return;
+  playbackStatusEl.textContent = message;
+}
+
+function setBufferingState(buffering) {
+  isBuffering = buffering;
+  setPlaybackStatus(buffering ? 'Loading audio...' : '');
+  updateCurrentTimeDisplay(audio.currentTime);
 }
 
 function setPlayState(playing) {
@@ -44,6 +69,7 @@ function formatTime(seconds) {
 // Update track info
 function updateTrackInfo() {
   trackTitle.textContent = tracks[currentTrackIndex].name;
+  setPlaybackStatus('');
   
   // Update active state in playlist
   trackItems.forEach((item, index) => {
@@ -55,6 +81,7 @@ function updateTrackInfo() {
 playBtn.addEventListener('click', () => {
   if (audio.paused) {
     ensureCurrentTrackLoaded();
+    setBufferingState(true);
     audio.play().catch(() => setPlayState(false));
     setPlayState(true);
   } else {
@@ -66,6 +93,7 @@ playBtn.addEventListener('click', () => {
 // Listen button in player header — start playing from current track
 listenStartBtn.addEventListener('click', () => {
   ensureCurrentTrackLoaded();
+  setBufferingState(true);
   audio.play().catch(() => setPlayState(false));
   setPlayState(true);
 });
@@ -88,8 +116,10 @@ nextBtn.addEventListener('click', () => {
 function loadTrack(autoplay = false) {
   audio.src = tracks[currentTrackIndex].src;
   updateTrackInfo();
+  setBufferingState(false);
 
   if (autoplay) {
+    setBufferingState(true);
     audio.play().catch(() => setPlayState(false));
     setPlayState(true);
   }
@@ -105,10 +135,14 @@ trackItems.forEach((item, index) => {
 
 // Update time
 audio.addEventListener('timeupdate', () => {
-  const duration = tracks[currentTrackIndex].duration;
+  const duration = getTrackDuration(currentTrackIndex);
+  if (!Number.isFinite(duration) || duration <= 0) {
+    updateCurrentTimeDisplay(audio.currentTime);
+    return;
+  }
   const progress = (audio.currentTime / duration) * 100;
   progressFill.style.width = `${progress}%`;
-  currentTimeEl.textContent = formatTime(audio.currentTime);
+  updateCurrentTimeDisplay(audio.currentTime);
 });
 
 
@@ -116,7 +150,8 @@ audio.addEventListener('timeupdate', () => {
 progressBar.addEventListener('click', (e) => {
   const rect = progressBar.getBoundingClientRect();
   const percent = (e.clientX - rect.left) / rect.width;
-  const duration = tracks[currentTrackIndex].duration;
+  const duration = getTrackDuration(currentTrackIndex);
+  if (!Number.isFinite(duration) || duration <= 0) return;
   audio.currentTime = percent * duration;
 });
 
@@ -124,6 +159,37 @@ progressBar.addEventListener('click', (e) => {
 audio.addEventListener('ended', () => {
   currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
   loadTrack(true);
+});
+
+audio.addEventListener('loadstart', () => {
+  setBufferingState(true);
+});
+
+audio.addEventListener('loadedmetadata', () => {
+  if (Number.isFinite(audio.duration) && audio.duration > 0) {
+    tracks[currentTrackIndex].duration = audio.duration;
+  }
+});
+
+audio.addEventListener('playing', () => {
+  setBufferingState(false);
+  setPlayState(true);
+});
+
+audio.addEventListener('waiting', () => {
+  if (!audio.paused) {
+    setBufferingState(true);
+  }
+});
+
+audio.addEventListener('canplay', () => {
+  setBufferingState(false);
+});
+
+audio.addEventListener('error', () => {
+  setBufferingState(false);
+  setPlayState(false);
+  setPlaybackStatus('Audio unavailable. Please try another track.');
 });
 
 // Volume button — drag up/down to adjust, click to mute
@@ -226,9 +292,11 @@ document.addEventListener('click', (e) => {
 const posterModal = document.getElementById('posterModal');
 const posterModalImg = document.getElementById('posterModalImg');
 const posterModalClose = document.getElementById('posterModalClose');
+let lastFocusedElement = null;
 
 function openPosterModalFromImage(img) {
   if (!img || !posterModal || !posterModalImg) return;
+  lastFocusedElement = document.activeElement;
   posterModalImg.src = img.src;
   posterModalImg.alt = img.alt;
   posterModal.hidden = false;
@@ -253,6 +321,9 @@ document.querySelectorAll('.media-column img, .image-wrapper img, .album-art img
 function closeModal() {
   posterModal.hidden = true;
   document.body.style.overflow = '';
+  if (lastFocusedElement instanceof HTMLElement) {
+    lastFocusedElement.focus();
+  }
 }
 
 posterModalClose.addEventListener('click', closeModal);
@@ -263,9 +334,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && !posterMod
 if (signupForm) {
   signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const data = new FormData(signupForm);
     try {
-      await submitEmailSignup(signupForm);
-      setEmailUnlocked();
+      await fetch('/', { method: 'POST', body: new URLSearchParams(data) });
       signupForm.closest('.footer-signup').innerHTML =
         '<p class="signup-success">Thanks for signing up. We\'ll be in touch.</p>';
     } catch {
@@ -275,42 +346,8 @@ if (signupForm) {
   });
 }
 
-if (emailGateForm) {
-  emailGateForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    clearEmailGateFeedback();
-
-    try {
-      await submitEmailSignup(emailGateForm);
-      setEmailUnlocked();
-    } catch {
-      if (emailGateFeedback) {
-        emailGateFeedback.hidden = false;
-        emailGateFeedback.textContent = 'Something went wrong. Please try again.';
-      }
-    }
-  });
-}
-
-if (emailGateDismissBtn) {
-  emailGateDismissBtn.addEventListener('click', () => {
-    if (emailGateSnoozeCount < MAX_EMAIL_GATE_SNOOZES) {
-      emailGateSnoozeCount += 1;
-      snoozePreviewPlaysRemaining = FREE_TRACK_LIMIT;
-      hideEmailUnlockPrompt();
-      return;
-    }
-
-    updateSnoozeButtonState();
-    if (emailGateFeedback) {
-      emailGateFeedback.hidden = false;
-      emailGateFeedback.textContent = 'Snooze limit reached. Enter your email to continue listening.';
-    }
-  });
-}
-
 // Initialize
 audio.volume = 1;
 updateVolumeIcon();
 updateTrackInfo();
-updateSnoozeButtonState();
+updateCurrentTimeDisplay(0);

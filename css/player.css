@@ -141,6 +141,13 @@
   border-radius: 3px;
 }
 
+.playback-status {
+  min-height: 1.25rem;
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  color: #b9b9b9;
+}
+
 /* Player Controls */
 .control-btn {
   background: none;
@@ -230,80 +237,6 @@
   color: #ffffff;
 }
 
-.email-gate-prompt {
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid rgba(215, 33, 39, 0.45);
-  background: rgba(215, 33, 39, 0.12);
-  border-radius: 8px;
-}
-
-.email-gate-message {
-  margin: 0 0 0.75rem;
-  color: #ffffff;
-  line-height: 1.45;
-}
-
-.email-gate-form {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.email-gate-form input[type='email'] {
-  flex: 1 1 240px;
-  min-width: 0;
-  padding: 0.55rem 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
-}
-
-.email-gate-form input[type='email']::placeholder {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.email-gate-form input[type='email']:focus {
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.8);
-}
-
-.email-gate-btn {
-  border: 1px solid transparent;
-  border-radius: 6px;
-  padding: 0.55rem 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.email-gate-btn-primary {
-  background: #ffffff;
-  color: #111111;
-}
-
-.email-gate-btn-primary:hover {
-  background: #f2f2f2;
-}
-
-.email-gate-btn-secondary {
-  background: transparent;
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.45);
-}
-
-.email-gate-btn-secondary:hover {
-  border-color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.email-gate-feedback {
-  margin: 0.75rem 0 0;
-  font-size: 0.95rem;
-  color: #ffffff;
-}
-
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -328,15 +261,6 @@
   .player-section {
     order: 2;
     min-height: auto;
-  }
-
-  .email-gate-form {
-    flex-direction: column;
-  }
-
-  .email-gate-form input[type='email'],
-  .email-gate-btn {
-    width: 100%;
   }
 
   .personnel {
