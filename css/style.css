@@ -476,7 +476,6 @@ div[id] {
   width: 100%;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  margin: 1.5rem;
   box-sizing: border-box;
   transition: transform 0.32s ease, box-shadow 0.32s ease;
   will-change: transform;
@@ -1081,10 +1080,6 @@ div[id] {
   .poster-feature-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .poster-feature-item {
-    margin: 0;
   }
 
   .poster-spotlight-row {

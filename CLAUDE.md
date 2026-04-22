@@ -27,7 +27,7 @@ This is a single-page 11ty (Eleventy v2) static site. The entire site is one HTM
 
 **Styles:** Split across two files — `css/style.css` (layout, sections, typography) and `css/player.css` (player UI, playlist, album art). Both are loaded in `<head>`.
 
-**Nav order:** The navbar links must match DOM section order (top to bottom) — the scroll-spy in `player.js` activates links based on `offsetTop`, so out-of-order links will never highlight correctly.
+**Nav order:** The navbar links must match DOM section order (top to bottom) for smooth-scroll anchors to target the correct sections.
 
 **Audio:** MP3 files in `mp3/` are referenced directly from `data-src` attributes on `.track-item` elements in the playlist. Duration (in seconds) is hardcoded as `data-duration` on each track item and used for progress bar calculation since the audio element uses `preload="none"`.
 

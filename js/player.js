@@ -54,7 +54,7 @@ function updateTrackInfo() {
 playBtn.addEventListener('click', () => {
   if (audio.paused) {
     ensureCurrentTrackLoaded();
-    audio.play();
+    audio.play().catch(() => setPlayState(false));
     setPlayState(true);
   } else {
     audio.pause();
@@ -65,7 +65,7 @@ playBtn.addEventListener('click', () => {
 // Listen button in player header — start playing from current track
 listenStartBtn.addEventListener('click', () => {
   ensureCurrentTrackLoaded();
-  audio.play();
+  audio.play().catch(() => setPlayState(false));
   setPlayState(true);
 });
 
@@ -86,9 +86,9 @@ function loadTrack() {
   const wasPlaying = !audio.paused;
   audio.src = tracks[currentTrackIndex].src;
   updateTrackInfo();
-  
+
   if (wasPlaying) {
-    audio.play();
+    audio.play().catch(() => setPlayState(false));
   }
 }
 
@@ -96,8 +96,9 @@ function loadTrack() {
 trackItems.forEach((item, index) => {
   item.addEventListener('click', () => {
     currentTrackIndex = index;
-    loadTrack();
-    audio.play();
+    audio.src = tracks[currentTrackIndex].src;
+    updateTrackInfo();
+    audio.play().catch(() => setPlayState(false));
     setPlayState(true);
   });
 });
@@ -123,7 +124,6 @@ progressBar.addEventListener('click', (e) => {
 audio.addEventListener('ended', () => {
   currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
   loadTrack();
-  audio.play();
   setPlayState(true);
 });
 
