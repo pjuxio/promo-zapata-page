@@ -10,6 +10,9 @@ module.exports = function(eleventyConfig) {
 
   // Copy js folder to output
   eleventyConfig.addPassthroughCopy("js");
+
+  // Copy sitemap
+  eleventyConfig.addPassthroughCopy("src/sitemap.xml");
   
   return {
     dir: {
