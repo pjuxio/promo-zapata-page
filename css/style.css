@@ -437,6 +437,8 @@ div[id] {
 
 .photo-grid-item {
   margin: 0;
+  transition: transform 0.32s ease, box-shadow 0.32s ease;
+  will-change: transform;
 }
 
 .photo-grid-item img {
@@ -444,6 +446,9 @@ div[id] {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+  border: 10px solid #ffffff;
+  box-sizing: border-box;
+  transition: filter 0.32s ease;
 }
 
 .photo-grid-item figcaption {
@@ -629,6 +634,16 @@ div[id] {
 .poster-spotlight-image:hover img,
 .poster-feature-item:focus-within img,
 .poster-spotlight-image:focus-within img {
+  filter: saturate(1.06) contrast(1.03);
+}
+
+.photo-grid-item:hover,
+.photo-grid-item:focus-within {
+  transform: translateY(-8px);
+}
+
+.photo-grid-item:hover img,
+.photo-grid-item:focus-within img {
   filter: saturate(1.06) contrast(1.03);
 }
 
