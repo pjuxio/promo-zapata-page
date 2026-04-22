@@ -692,6 +692,12 @@ div[id] {
   line-height: 1.8;
   margin-bottom: 1.5rem;
   color: var(--text-light);
+  text-align: left;
+}
+
+.listen-section .btn-purchase {
+  display: block;
+  width: fit-content;
 }
 
 /* Full Width Image Section */
