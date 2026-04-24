@@ -311,7 +311,7 @@ document.querySelectorAll('.poster-trigger').forEach(btn => {
   });
 });
 
-document.querySelectorAll('.media-column img, .image-wrapper img, .album-art img').forEach(img => {
+document.querySelectorAll('.media-column img, .image-wrapper img, .album-art img, .full-width-image img').forEach(img => {
   if (img.closest('.poster-trigger')) return;
   img.addEventListener('click', () => {
     openPosterModalFromImage(img);
