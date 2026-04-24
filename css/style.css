@@ -760,11 +760,13 @@ div[id] {
   width: 100%;
   overflow: hidden;
   position: relative;
+  aspect-ratio: 3 / 2;
 }
 
 .full-width-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -1158,6 +1160,11 @@ div[id] {
 
   .photo-grid-section {
     padding: 2.5rem 1.5rem;
+  }
+
+  .photo-grid-item figcaption {
+    text-align: center;
+    font-size: 75%;
   }
 
   .poster-feature-grid {
