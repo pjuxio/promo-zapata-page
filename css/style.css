@@ -462,6 +462,7 @@ div[id] {
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--text-dark);
+  text-align: center;
 }
 
 .image-column-narrow {
