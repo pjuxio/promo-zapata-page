@@ -886,6 +886,8 @@ div[id] {
 
 .signup-fields input[type="email"]:focus {
   border-color: #2ecc71;
+  outline: 2px solid #2ecc71;
+  outline-offset: 1px;
 }
 
 .signup-fields button {

@@ -82,8 +82,7 @@ playBtn.addEventListener('click', () => {
   if (audio.paused) {
     ensureCurrentTrackLoaded();
     setBufferingState(true);
-    audio.play().catch(() => setPlayState(false));
-    setPlayState(true);
+    audio.play().then(() => setPlayState(true)).catch(() => setPlayState(false));
   } else {
     audio.pause();
     setPlayState(false);
@@ -94,8 +93,7 @@ playBtn.addEventListener('click', () => {
 listenStartBtn.addEventListener('click', () => {
   ensureCurrentTrackLoaded();
   setBufferingState(true);
-  audio.play().catch(() => setPlayState(false));
-  setPlayState(true);
+  audio.play().then(() => setPlayState(true)).catch(() => setPlayState(false));
 });
 
 // Previous track
@@ -120,8 +118,7 @@ function loadTrack(autoplay = false) {
 
   if (autoplay) {
     setBufferingState(true);
-    audio.play().catch(() => setPlayState(false));
-    setPlayState(true);
+    audio.play().then(() => setPlayState(true)).catch(() => setPlayState(false));
   }
 }
 

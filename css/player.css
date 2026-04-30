@@ -1,6 +1,6 @@
 .player-container {
   display: grid;
-  grid-template-columns: minmax(400px, 600px) 1fr;
+  grid-template-columns: minmax(min(400px, 100%), 600px) 1fr;
   grid-template-rows: auto 1fr;
   padding-top: calc(56px + 2rem);
   width: 100%;
@@ -308,10 +308,6 @@
     font-size: 1.2rem;
   }
 
-  .player-controls {
-    gap: 1rem;
-  }
-
   .play-btn {
     width: 60px;
     height: 60px;
@@ -322,7 +318,4 @@
     height: 20px;
   }
 
-  .back-link {
-    margin-top: 0;
-  }
 }
